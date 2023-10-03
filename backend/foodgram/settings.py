@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -10,7 +11,12 @@ SECRET_KEY = os.getenv("SECRET_KEY", "key")
 
 DEBUG = os.getenv("DEBUG") == "True"
 
-ALLOWED_HOSTS = ['51.250.108.218', '127.0.0.1', 'localhost', 'catplanet.hopto.org']
+ALLOWED_HOSTS = [
+    "51.250.108.218",
+    "127.0.0.1",
+    "localhost",
+    "catplanet.hopto.org",
+]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -65,13 +71,13 @@ WSGI_APPLICATION = "foodgram.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB', 'foodgram'),
-        'USER': os.getenv('POSTGRES_USER', 'foodgram'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
-        'HOST': os.getenv('DB_HOST', ''),
-        'PORT': os.getenv('DB_PORT', 5432)
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("POSTGRES_DB", "foodgram"),
+        "USER": os.getenv("POSTGRES_USER", "foodgram"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD", ""),
+        "HOST": os.getenv("DB_HOST", ""),
+        "PORT": os.getenv("DB_PORT", 5432),
     }
 }
 
