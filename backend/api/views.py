@@ -11,25 +11,15 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 
 from recipes.models import (
-    Favorite,
-    Ingredient,
-    IngredientsInRecipe,
-    Recipe,
-    ShoppingCart,
-    Tag,
+    Favorite, Ingredient, IngredientsInRecipe, Recipe, ShoppingCart, Tag,
 )
 from users.models import Subscribe, User
 
 from .filters import IngredientFilter, RecipeFilter
 from .permissions import IsOwnerOrAdminOrReadOnly
 from .serializers import (
-    CreateRecipeSerializer,
-    GetRecipeSerializer,
-    IngredientSerializer,
-    RecipeSerializer,
-    SubscriptionsSerializer,
-    TagSerializer,
-    UserSerializer,
+    CreateRecipeSerializer, GetRecipeSerializer, IngredientSerializer,
+    RecipeSerializer, SubscriptionsSerializer, TagSerializer, UserSerializer,
 )
 
 

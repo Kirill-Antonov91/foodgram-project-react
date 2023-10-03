@@ -10,7 +10,6 @@ jobs:
   backend_linter_test:
     runs-on: ubuntu-latest
     steps:
-    - name: Copy repository code
       uses: actions/checkout@v3
     - name: Set up Python
       uses: actions/setup-python@v4
