@@ -105,7 +105,7 @@ jobs:
           labels: ${{ github.sha }}
   
   build_infra_and_push_to_docker_hub:
-    name: Push gateway Docker image to DockerHub
+    name: Push infra Docker image to DockerHub
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -131,7 +131,6 @@ jobs:
       - build_and_push_to_docker_hub
       - build_frontend_and_push_to_docker_hub
       - build_infra_and_push_to_docker_hub
-    if: github.ref == 'refs/heads/main'
     steps:
     - name: Checkout repo
       uses: actions/checkout@v3
