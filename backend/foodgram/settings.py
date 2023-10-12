@@ -15,7 +15,7 @@ ALLOWED_HOSTS = [
     "51.250.108.218",
     "127.0.0.1",
     "localhost",
-    "catplanet.hopto.org",
+    "recipesforkitchen.hopto.org",
 ]
 
 INSTALLED_APPS = [
