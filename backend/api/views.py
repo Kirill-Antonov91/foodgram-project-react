@@ -24,7 +24,7 @@ from .serializers import (
 
 
 class IngredientViewSet(ReadOnlyModelViewSet):
-    # pagination_class = None
+    pagination_class = None
     queryset = Ingredient.objects.all()
     serializer_class = IngredientSerializer
     permission_classes = (IsOwnerOrAdminOrReadOnly,)
@@ -33,7 +33,7 @@ class IngredientViewSet(ReadOnlyModelViewSet):
 
 
 class TagViewSet(ReadOnlyModelViewSet):
-    # pagination_class = None
+    pagination_class = None
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
     permission_classes = (IsOwnerOrAdminOrReadOnly,)
