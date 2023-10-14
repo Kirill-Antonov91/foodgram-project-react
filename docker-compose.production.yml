@@ -12,6 +12,9 @@ services:
       - .env
     volumes:
       - pg_data_foodgram:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
   backend:
     image: antony41991/foodgram_backend
     env_file: 
