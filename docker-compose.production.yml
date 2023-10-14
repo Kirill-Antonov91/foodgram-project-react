@@ -8,8 +8,10 @@ volumes:
 services:
   db:
     image: postgres:13.10
-    env_file: 
-      - .env
+    environment:
+      - POSTGRES_PASSWORD=foodgram_password
+      - POSTGRES_USER=foodgram_user
+      - POSTGRES_DB=foodgram
     volumes:
       - pg_data_foodgram:/var/lib/postgresql/data
     ports:
