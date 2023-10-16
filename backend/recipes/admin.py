@@ -20,6 +20,7 @@ class IngredientAdmin(admin.ModelAdmin):
     list_display = ("pk", "name", "measurement_unit")
     list_display_links = ("name",)
     search_fields = ("name",)
+    list_filter = ("name",)
     empty_value_display = "-пусто-"
 
 
@@ -32,7 +33,7 @@ class RecipeAdmin(admin.ModelAdmin):
         "name",
         "author__email",
     )
-    list_filter = ("author", "tags")
+    list_filter = ("name", "author", "tags")
     empty_value_display = "-пусто-"
 
     def get_queryset(self, request):
