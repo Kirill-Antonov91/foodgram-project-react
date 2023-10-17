@@ -27,7 +27,7 @@ docker exec -it infra-backend-1 python manage.py collectstatic
 ```bash
 docker exec -it infra-backend-1 python manage.py createsuperuser
 docker exec -it infra-backend-1 python manage.py load_tags_json
-docker exec -it infra-backend-1 python manage.py load_ingredients_csv
+docker exec -it infra-backend-1 python manage.py add_ingredients
 ```
 
 #### Сервис Foodgram будет доступен по адресу в браузере: http://localhost/
