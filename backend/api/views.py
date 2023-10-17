@@ -24,6 +24,7 @@ from .serializers import (
 
 
 class IngredientViewSet(ReadOnlyModelViewSet):
+    """ViewSet для ингредиентов."""
     pagination_class = None
     queryset = Ingredient.objects.all()
     serializer_class = IngredientSerializer
@@ -33,6 +34,7 @@ class IngredientViewSet(ReadOnlyModelViewSet):
 
 
 class TagViewSet(ReadOnlyModelViewSet):
+    """ViewSet для тегов."""
     pagination_class = None
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
@@ -40,6 +42,7 @@ class TagViewSet(ReadOnlyModelViewSet):
 
 
 class RecipeViewSet(ModelViewSet):
+    """ViewSet для рецептов."""
     queryset = Recipe.objects.select_related("author").prefetch_related(
         "tags", "ingredients"
     )
@@ -152,6 +155,7 @@ class RecipeViewSet(ModelViewSet):
 
 
 class UserViewSet(UserViewSet):
+    """ViewSet для пользователей."""
     queryset = User.objects.all()
     serializer_class = UserSerializer
 

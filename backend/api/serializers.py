@@ -13,6 +13,7 @@ from users.models import Subscribe, User
 
 
 class CreateUserSerializer(UserCreateSerializer):
+    """Сериализатор для создания пользователя."""
     class Meta:
         model = User
         fields = (
@@ -26,6 +27,7 @@ class CreateUserSerializer(UserCreateSerializer):
 
 
 class UserSerializer(UserSerializer):
+    """Сериализатор для пользователя."""
     is_subscribed = serializers.SerializerMethodField()
 
     class Meta:
@@ -47,12 +49,14 @@ class UserSerializer(UserSerializer):
 
 
 class TagSerializer(serializers.ModelSerializer):
+    """Сериализатор для тегов."""
     class Meta:
         model = Tag
         fields = ("id", "name", "slug", "color")
 
 
 class IngredientSerializer(serializers.ModelSerializer):
+    """Сериализатор для ингредиентов."""
     class Meta:
         model = Ingredient
         fields = (
@@ -76,6 +80,7 @@ class IngredientRecipeSerializer(serializers.ModelSerializer):
 
 
 class IngredientsInRecipeSerializer(serializers.ModelSerializer):
+    """Сериализатор для ингредиентов в рецепте."""
     id = serializers.IntegerField(write_only=True)
     amount = serializers.IntegerField()
 
@@ -85,6 +90,7 @@ class IngredientsInRecipeSerializer(serializers.ModelSerializer):
 
 
 class RecipeSerializer(serializers.ModelSerializer):
+    """Сериализатор для рецептов."""
     image = Base64ImageField(read_only=True)
 
     class Meta:
@@ -93,6 +99,7 @@ class RecipeSerializer(serializers.ModelSerializer):
 
 
 class GetRecipeSerializer(serializers.ModelSerializer):
+    """Сериализатор Recipe для чтения."""
     author = UserSerializer(read_only=True)
     tags = TagSerializer(many=True, read_only=True)
     ingredients = serializers.SerializerMethodField()
@@ -142,6 +149,7 @@ class GetRecipeSerializer(serializers.ModelSerializer):
 
 
 class CreateRecipeSerializer(serializers.ModelSerializer):
+    """Сериализатор для создания рецептов."""
     tags = serializers.PrimaryKeyRelatedField(
         queryset=Tag.objects.all(), many=True
     )
@@ -239,6 +247,7 @@ class CreateRecipeSerializer(serializers.ModelSerializer):
 
 
 class SubscriptionsSerializer(UserSerializer):
+    """Сериализатор для подпсиок."""
     recipes = serializers.SerializerMethodField()
     recipes_count = serializers.IntegerField(default=0)
 

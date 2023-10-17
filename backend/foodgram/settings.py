@@ -11,12 +11,9 @@ SECRET_KEY = os.getenv("SECRET_KEY", "key")
 
 DEBUG = os.getenv("DEBUG") == "True"
 
-ALLOWED_HOSTS = [
-    "51.250.108.218",
-    "127.0.0.1",
-    "localhost",
-    "recipesforkitchen.hopto.org",
-]
+ALLOWED_HOSTS = os.getenv(
+    "ALLOWED_HOSTS", default="127.0.0.1,localhost"
+).split(",")
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -67,9 +64,6 @@ TEMPLATES = [
 WSGI_APPLICATION = "foodgram.wsgi.application"
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -81,9 +75,6 @@ DATABASES = {
     }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -131,8 +122,6 @@ DJOSER = {
 
 AUTH_USER_MODEL = "users.User"
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = "ru"
 
@@ -143,9 +132,6 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "collected_static"
 
@@ -155,7 +141,5 @@ MEDIA_ROOT = BASE_DIR / "media"
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_URLS_REGEX = r"^/api/.*$"
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
