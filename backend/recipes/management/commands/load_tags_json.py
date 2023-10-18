@@ -9,10 +9,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         with open("recipes/data/tags.json") as json_file:
             data = json.load(json_file)
-            for i in data:
+            for tag in data:
                 db = Tag(
-                    name=i['name'],
-                    color=i['color'],
-                    slug=i['slug']
+                    name=tag["name"], color=tag["color"], slug=tag["slug"]
                 )
                 db.save()

@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.core.validators import MinValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
 from core.models import CreatedModel
@@ -88,9 +88,9 @@ class Recipe(CreatedModel):
         verbose_name="Теги",
         related_name="recipes",
     )
-    cooking_time = models.PositiveIntegerField(
+    cooking_time = models.PositiveSmallIntegerField(
         "Время приготовления",
-        validators=[MinValueValidator(1)],
+        validators=[MinValueValidator(1), MaxValueValidator(360)],
     )
 
     class Meta:
@@ -116,9 +116,10 @@ class IngredientsInRecipe(models.Model):
         Ingredient,
         on_delete=models.CASCADE,
         related_name="ingredientsinrecipe",
+        verbose_name="Ингредиенты",
     )
-    amount = models.PositiveIntegerField(
-        validators=[MinValueValidator(1)],
+    amount = models.PositiveSmallIntegerField(
+        validators=[MinValueValidator(1), MaxValueValidator(100)],
     )
 
     class Meta:
@@ -136,9 +137,13 @@ class ShoppingCart(CreatedModel):
         User,
         on_delete=models.CASCADE,
         related_name="shopping_cart",
+        verbose_name="Пользователь",
     )
     recipe = models.ForeignKey(
-        Recipe, on_delete=models.CASCADE, related_name="shopping_cart"
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name="shopping_cart",
+        verbose_name="Рецепт",
     )
 
     class Meta:
@@ -158,11 +163,13 @@ class Favorite(CreatedModel):
         User,
         on_delete=models.CASCADE,
         related_name="favorites",
+        verbose_name="Пользователь",
     )
     recipe = models.ForeignKey(
         Recipe,
         on_delete=models.CASCADE,
         related_name="favorites",
+        verbose_name="Рецепт",
     )
 
     class Meta:

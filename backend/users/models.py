@@ -8,13 +8,13 @@ class User(AbstractUser):
     first_name = models.CharField(max_length=255, verbose_name="Имя")
     last_name = models.CharField(max_length=255, verbose_name="Фамилия")
     email = models.EmailField(
-        max_length=255, unique=True, verbose_name="Почта"
+        max_length=254, unique=True, verbose_name="Почта"
     )
 
     REQUIRED_FIELDS = ["first_name", "last_name", "email"]
 
 
-class Subscribe(models.Model):
+class Subscription(models.Model):
     """Модель подписок."""
 
     author = models.ForeignKey(

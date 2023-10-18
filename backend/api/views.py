@@ -13,7 +13,7 @@ from django.shortcuts import get_object_or_404
 from recipes.models import (
     Favorite, Ingredient, IngredientsInRecipe, Recipe, ShoppingCart, Tag,
 )
-from users.models import Subscribe, User
+from users.models import Subscription, User
 
 from .filters import IngredientFilter, RecipeFilter
 from .permissions import IsOwnerOrAdminOrReadOnly
@@ -188,10 +188,10 @@ class UserViewSet(UserViewSet):
                 author, data=request.data, context={"request": request}
             )
             serializer.is_valid(raise_exception=True)
-            Subscribe.objects.create(user=request.user, author=author)
+            Subscription.objects.create(user=request.user, author=author)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-        subscription = Subscribe.objects.filter(
+        subscription = Subscription.objects.filter(
             user=request.user, author=author
         ).delete()
         if subscription[0] > 0:
