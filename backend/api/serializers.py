@@ -254,7 +254,7 @@ class CreateRecipeSerializer(serializers.ModelSerializer):
 
 class SubscriptionsSerializer(UserSerializer):
     """Сериализатор для подпсиок."""
-    
+
     recipes = serializers.SerializerMethodField()
     recipes_count = serializers.IntegerField(default=0)
 

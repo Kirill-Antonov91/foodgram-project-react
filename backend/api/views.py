@@ -159,7 +159,7 @@ class RecipeViewSet(ModelViewSet):
 
 class UserViewSet(UserViewSet):
     """ViewSet для пользователей."""
-    
+
     queryset = User.objects.all()
     serializer_class = UserSerializer
 

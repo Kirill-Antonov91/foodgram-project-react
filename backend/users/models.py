@@ -16,7 +16,7 @@ class User(AbstractUser):
 
 class Subscribe(models.Model):
     """Модель подписок."""
-    
+
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
