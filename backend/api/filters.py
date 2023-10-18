@@ -1,3 +1,5 @@
+"""Файл для фильтров проекта."""
+
 from django_filters.rest_framework import FilterSet, filters
 
 from recipes.models import Ingredient, Recipe, Tag
@@ -5,18 +7,20 @@ from recipes.models import Ingredient, Recipe, Tag
 
 class IngredientFilter(FilterSet):
     """Фильтрация для ингредиентов."""
-    name = filters.CharFilter(field_name="name", method="name_filter")
 
-    def name_filter(self, queryset, name, value):
-        return queryset.filter(name__istartswith=value)
+    name = filters.CharFilter(field_name="name", method="name_filter")
 
     class Meta:
         model = Ingredient
         fields = ("name",)
 
+    def name_filter(self, queryset, name, value):
+        return queryset.filter(name__istartswith=value)
+
 
 class RecipeFilter(FilterSet):
     """Фильтрация для рецептов."""
+
     tags = filters.ModelMultipleChoiceFilter(
         field_name="tags__slug",
         to_field_name="slug",
