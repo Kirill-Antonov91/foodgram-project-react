@@ -3,6 +3,8 @@ from django.db import models
 
 
 class User(AbstractUser):
+    """Модель пользователя."""
+
     first_name = models.CharField(max_length=255, verbose_name="Имя")
     last_name = models.CharField(max_length=255, verbose_name="Фамилия")
     email = models.EmailField(
@@ -13,6 +15,8 @@ class User(AbstractUser):
 
 
 class Subscribe(models.Model):
+    """Модель подписок."""
+    
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,

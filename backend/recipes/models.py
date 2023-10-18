@@ -8,14 +8,7 @@ User = get_user_model()
 
 
 class Tag(models.Model):
-    """Модель тегов.
-
-    Описывается следующими полями:
-
-    name - Название тега.
-    color - Цветовой HEX-код (например, #49B64E).
-    slug - слаг тега.
-    """
+    """Модель тегов."""
 
     name = models.CharField(
         "Название",
@@ -33,24 +26,17 @@ class Tag(models.Model):
         max_length=255,
     )
 
-    def __str__(self):
-        return self.name
-
     class Meta:
         verbose_name = "Тег"
         verbose_name_plural = "Теги"
         ordering = ["name"]
 
+    def __str__(self):
+        return self.name
+
 
 class Ingredient(models.Model):
-    """Модель ингридиентов.
-
-    Данные об ингредиентах хранятся в нескольких связанных таблицах.
-    Описывается следующими полями:
-
-    name - Название.
-    units - Единицы измерения.
-    """
+    """Модель ингридиентов."""
 
     name = models.CharField(
         "Название",
@@ -61,31 +47,17 @@ class Ingredient(models.Model):
         max_length=15,
     )
 
-    def __str__(self):
-        return self.name
-
     class Meta:
         verbose_name = "Ингредиент"
         verbose_name_plural = "Ингредиенты"
         ordering = ["name"]
 
+    def __str__(self):
+        return self.name
+
 
 class Recipe(CreatedModel):
-    """Модель для рецептов.
-
-    Описывается следующими полями:
-
-    author - Автор публикации (пользователь).
-    name - Название.
-    image - Картинка блюда.
-    text - Текстовое описание рецепта.
-    ingridients - Ингредиенты: продукты для приготовления блюда по рецепту.
-    Множественное поле, выбор из предустановленного списка,
-    с указанием количества и единицы измерения.
-    tags - Теги (можно установить несколько тегов на один рецепт,
-    выбор из предустановленных).
-    cooking_time - Время приготовления в минутах.
-    """
+    """Модель для рецептов."""
 
     author = models.ForeignKey(
         User,
@@ -131,13 +103,7 @@ class Recipe(CreatedModel):
 
 
 class IngredientsInRecipe(models.Model):
-    """Модель ингридиентов в рецепте.
-
-    Описывается следующими полями:
-
-    ingredient - Ингридиент из модели ингридиентов.
-    amount - количество ингридиента.
-    """
+    """Модель ингридиентов в рецепте."""
 
     recipe = models.ForeignKey(
         Recipe,
@@ -155,22 +121,16 @@ class IngredientsInRecipe(models.Model):
         validators=[MinValueValidator(1)],
     )
 
-    def __str__(self):
-        return f"{self.ingredient.name}: {self.amount}"
-
     class Meta:
         verbose_name = "Ингредиенты в рецепте"
         verbose_name_plural = "Ингредиенты в рецептах"
 
+    def __str__(self):
+        return f"{self.ingredient.name}: {self.amount}"
+
 
 class ShoppingCart(CreatedModel):
-    """Модель для корзины.
-
-    Описывается следующими полями:
-
-    user - Пользователь добавивший рецепт в корзину.
-    recipe - Добавленный рецепт.
-    """
+    """Модель для корзины."""
 
     user = models.ForeignKey(
         User,
@@ -192,13 +152,7 @@ class ShoppingCart(CreatedModel):
 
 
 class Favorite(CreatedModel):
-    """Модель для избранных рецепт.
-
-    Описывается следующими полями:
-
-    user - Пользователь добавивший рецепт в избранное.
-    recipe - Добавленный рецепт.
-    """
+    """Модель для избранных рецепт."""
 
     user = models.ForeignKey(
         User,
