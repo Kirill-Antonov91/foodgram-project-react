@@ -14,7 +14,7 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ["first_name", "last_name", "email"]
 
 
-class Subscription(models.Model):
+class Subscribe(models.Model):
     """Модель подписок."""
 
     author = models.ForeignKey(

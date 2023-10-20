@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from users.models import Subscription, User
+from users.models import Subscribe, User
 
 
 @admin.register(User)
@@ -22,7 +22,7 @@ class UserAdmin(admin.ModelAdmin):
     empty_value_display = "-пусто-"
 
 
-@admin.register(Subscription)
+@admin.register(Subscribe)
 class SubscribeAdmin(admin.ModelAdmin):
     list_display = (
         "author",
