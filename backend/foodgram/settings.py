@@ -18,6 +18,11 @@ ALLOWED_HOSTS = [
     "recipesforkitchen.hopto.org",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost",
+    "http://recipesforkitchen.hopto.org",
+    "http://51.250.108.218",
+]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
