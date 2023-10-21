@@ -147,5 +147,7 @@ STATIC_ROOT = BASE_DIR / "collected_static"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_URLS_REGEX = r"^/api/.*$"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
