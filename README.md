@@ -117,7 +117,7 @@ sudo docker exec -it foodgram-backend-1 python manage.py add_ingredients
 ip сервера: 51.250.108.218
 Домен: https://recipesforkitchen.hopto.org
 Данные учетки администратора: 
-Логин: antonov.kirill1991@yandex.ru
+Логин: admin
 Пароль: Kerzhakov9
 '''
 1
