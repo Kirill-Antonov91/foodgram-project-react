@@ -11,9 +11,12 @@ SECRET_KEY = os.getenv("SECRET_KEY", "key")
 
 DEBUG = os.getenv("DEBUG") == "True"
 
-ALLOWED_HOSTS = os.getenv(
-    "ALLOWED_HOSTS", default="127.0.0.1,localhost"
-).split(",")
+ALLOWED_HOSTS = [
+    "51.250.108.218",
+    "127.0.0.1",
+    "localhost",
+    "recipesforkitchen.hopto.org",
+]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost",
