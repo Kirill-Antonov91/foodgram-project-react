@@ -9,7 +9,7 @@ from django.shortcuts import get_object_or_404
 from recipes.models import (
     Favorite, Ingredient, IngredientsInRecipe, Recipe, ShoppingCart, Tag,
 )
-from users.models import Subscribe, User
+from users.models import Subscription, User
 
 
 class CreateUserSerializer(UserCreateSerializer):
@@ -47,7 +47,7 @@ class UserSerializer(UserSerializer):
         request = self.context.get("request")
         if request is None or request.user.is_anonymous:
             return False
-        return Subscribe.objects.filter(
+        return Subscription.objects.filter(
             user=request.user, author=obj
         ).exists()
 
@@ -284,7 +284,7 @@ class SubscriptionsSerializer(UserSerializer):
     def validate(self, data):
         author = self.instance
         user = self.context.get("request").user
-        if Subscribe.objects.filter(author=author, user=user).exists():
+        if Subscription.objects.filter(author=author, user=user).exists():
             raise ValidationError(
                 detail="Вы уже подписаны на этого пользователя!",
                 code=status.HTTP_400_BAD_REQUEST,
