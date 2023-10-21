@@ -71,18 +71,18 @@ class Api {
     ).then(this.checkResponse)
   }
 
-  getUserData () {
-    const token = localStorage.getItem('token')
+  getUserData() {
+    const token = localStorage.getItem('token');
     return fetch(
-      `'/api/users/me/'`,
+      '/api/users/me/',
       {
         method: 'GET',
         headers: {
           ...this._headers,
-          `'authorization': `Token ${token}``
+          'authorization': `Token ${token}`
         }
       }
-    ).then(this.checkResponse)
+    ).then(this.checkResponse);
   }
 
   changePassword ({ current_password, new_password }) {
