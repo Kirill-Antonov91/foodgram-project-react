@@ -38,3 +38,6 @@ class Subscription(models.Model):
                 fields=["user", "author"], name="uq_user_author"
             )
         ]
+
+    def __str__(self):
+        return f"{self.user} подписан на {self.author}"

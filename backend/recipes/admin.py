@@ -20,7 +20,6 @@ class IngredientAdmin(admin.ModelAdmin):
     list_display = ("pk", "name", "measurement_unit")
     list_display_links = ("name",)
     search_fields = ("name",)
-    list_filter = ("name",)
     empty_value_display = "-пусто-"
 
 
