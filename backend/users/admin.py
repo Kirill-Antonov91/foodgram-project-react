@@ -25,8 +25,8 @@ class SubscribeAdmin(admin.ModelAdmin):
         "user",
     )
     search_fields = (
-        "author",
-        "user",
+        "author__username",
+        "user__username",
     )
     empty_value_display = "-пусто-"
 
