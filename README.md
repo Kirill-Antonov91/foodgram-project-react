@@ -107,6 +107,5 @@ sudo docker exec -it foodgram-backend-1 python manage.py load_tags_json
 sudo docker exec -it foodgram-backend-1 python manage.py add_ingredients
 ```
 
-'''
 ### Автор  
 [KirillAntonov](https://github.com/Kirill-Antonov91)
