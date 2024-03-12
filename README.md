@@ -1,4 +1,4 @@
-# Foodgram
+# Recipes for your kitchen
 
 На этом сервисе пользователи могут публиковать рецепты, подписываться на публикации других пользователей, добавлять понравившиеся рецепты в список «Избранное», а перед походом в магазин скачивать сводный список продуктов, необходимых для приготовления одного или нескольких выбранных блюд.
 
@@ -10,6 +10,12 @@
 - #### Nginx
 - #### Docker Compose
 - #### React
+- #### Python
+- #### JSON
+- #### YAML
+- #### API
+- #### Gunicorn
+- #### JWT
 
 ## Запуск в dev-режиме
 
@@ -29,13 +35,6 @@ docker exec -it infra-backend-1 python manage.py createsuperuser
 docker exec -it infra-backend-1 python manage.py load_tags_json
 docker exec -it infra-backend-1 python manage.py add_ingredients
 ```
-
-#### Сервис Foodgram будет доступен по адресу в браузере: http://localhost/
-
-#### Документация по API будет доступна по адресу: http://localhost/api/docs/
-
-#### Панель администрирования будет доступна по адресу: http://localhost/admin/
-
 
 ## Деплой на удаленный сервер
 
@@ -107,17 +106,7 @@ sudo docker exec -it foodgram-backend-1 python manage.py createsuperuser
 sudo docker exec -it foodgram-backend-1 python manage.py load_tags_json
 sudo docker exec -it foodgram-backend-1 python manage.py add_ingredients
 ```
-#### Сервис Foodgram будет доступен по адресу: http://server_ip
-
-#### Документация по API будет доступна по адресу: http://server_ip/api/docs/
-
-#### Панель администрирования будет доступна по адресу: http://server_ip/admin/
 
 '''
-ip сервера: 51.250.108.218
-Домен: https://recipesforkitchen.hopto.org
-Данные учетки администратора: 
-Логин: admin
-Пароль: Kerzhakov9
-'''
-1
+### Автор  
+[KirillAntonov](https://github.com/Kirill-Antonov91)
